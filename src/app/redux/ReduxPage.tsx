@@ -1,8 +1,8 @@
 'use client'
 
-import { useDispatch, useSelector } from 'react-redux'
-
-import type { RootState } from '@/datas/appStore'
+import Test from '@/components/Test'
+import Test3 from '@/components/Test3'
+import { useAppDispatch, useAppSelector } from '@/datas/appStore'
 import {
   decrement,
   increment,
@@ -10,8 +10,10 @@ import {
 } from '@/datas/features/counter/counterSlice'
 
 const ReduxPage = () => {
-  const count = useSelector((state: RootState) => state.counter.value)
-  const dispatch = useDispatch()
+  console.log('ReduxPage')
+
+  const count = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
 
   return (
     <div>
@@ -35,6 +37,16 @@ const ReduxPage = () => {
           sub
         </button>
       </div>
+      <div>
+        <button
+          onClick={() => {
+            dispatch(incrementByAmount(10))
+          }}
+        >
+          Add 10
+        </button>
+      </div>
+      <Test3></Test3>
     </div>
   )
 }

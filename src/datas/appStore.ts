@@ -1,14 +1,25 @@
 'use client'
 
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
+import logger from 'redux-logger'
 
 import counterReducer from '@/datas/features/counter/counterSlice'
 
+const rootReducer = combineReducers({
+  counter: counterReducer
+})
+
 export const appStore = configureStore({
-  reducer: {
-    counter: counterReducer
-  }
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => {
+    const middlewares = getDefaultMiddleware({ serializableCheck: false })
+    if (process.env.NODE_ENV !== 'production') {
+      middlewares.concat(logger)
+    }
+    return middlewares
+  },
+  devTools: process.env.NODE_ENV !== 'production'
 })
 
 type RootState = ReturnType<typeof appStore.getState>
