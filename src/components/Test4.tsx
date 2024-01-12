@@ -1,21 +1,21 @@
 'use client'
 
 import { effect } from '@preact/signals-react'
-// import { useContext } from 'react'
-import { useContext } from 'preact/hooks'
 
-import { AppContext } from '@/app/signal/SignalPage'
+import TestState from '@/states/TestState'
+const { completed, tests } = TestState
 
-function Test4() {
+effect(() => {
+  console.log('test4 effect', completed.value)
+})
+
+function Test4({ a }) {
   console.log('test 4')
-
-  const {
-    testState: { completed, tests }
-  } = useContext(AppContext)
 
   const handleClick2 = () => {
     console.log('handle click 2')
     tests.value = [...tests.value, `test ${completed.value}`]
+    a.value = a.value + 1
   }
 
   return (

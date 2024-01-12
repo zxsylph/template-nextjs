@@ -1,19 +1,22 @@
 'use client'
 
-// import { useContext } from 'react'
-import { useContext } from 'preact/hooks'
-import { effect } from '@preact/signals-react'
+import { effect, useSignal } from '@preact/signals-react'
 
-import { AppContext } from '@/app/signal/SignalPage'
-import { TestContext } from '@/app/signal/SignalPage'
+import TestState from '@/states/TestState'
+import { useEffect, useMemo, useState } from 'react'
+const { completed, tests } = TestState
 
-const Test = () => {
+console.log('test', completed.value)
+effect(() => {
+  console.log('test effect', completed.value)
+})
+
+const Test = ({ a }) => {
   console.log('render test')
-
-  const { completed, tests } = useContext(TestContext)
+  const value = useMemo(() => completed.value, [completed.value])
 
   effect(() => {
-    console.log('test', tests.value)
+    console.log('test component effect', completed.value)
   })
 
   return (
@@ -21,6 +24,8 @@ const Test = () => {
       <div>test</div>
       <div>{tests.value.length}</div>
       <div>{completed.value}</div>
+      <div>{value}</div>
+      <div>{a.value}</div>
     </div>
   )
 }
