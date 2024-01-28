@@ -7,7 +7,7 @@ import Test from '@/components/Test'
 
 import { countAtom } from '@/datas/count'
 
-function JotaiPage() {
+function Jotai2Page() {
   const [count, setCounter] = useAtom(countAtom)
   const onClick = () => setCounter((prev) => prev + 1)
 
@@ -20,10 +20,10 @@ function JotaiPage() {
       </div>
       <Test></Test>
       <div>
-        <Link href="jotai2">Jotai 2</Link>
+        <Link href="jotai">Jotai</Link>
       </div>
     </>
   )
 }
 
-export default JotaiPage
+export default Jotai2Page
