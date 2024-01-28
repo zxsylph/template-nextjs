@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { atom, useAtom } from 'jotai'
+import { DevTools } from 'jotai-devtools'
 
 import Test from '@/components/Test'
 
@@ -22,6 +23,7 @@ function JotaiPage() {
       <div>
         <Link href="jotai2">Jotai 2</Link>
       </div>
+      <DevTools />
     </>
   )
 }
