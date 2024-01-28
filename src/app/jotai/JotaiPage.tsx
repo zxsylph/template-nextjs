@@ -5,10 +5,10 @@ import { atom, useAtom } from 'jotai'
 
 import Test from '@/components/Test'
 
-import { countAtom } from '@/datas/count'
+import { countAtom, countAtomWithStorage } from '@/datas/count'
 
 function JotaiPage() {
-  const [count, setCounter] = useAtom(countAtom)
+  const [count, setCounter] = useAtom(countAtomWithStorage)
   const onClick = () => setCounter((prev) => prev + 1)
 
   return (
