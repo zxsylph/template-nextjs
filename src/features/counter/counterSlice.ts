@@ -2,6 +2,7 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
+import { RootState } from '@/datas/appStore'
 import { CounterStateType } from '@/types/CounterStateType'
 
 const initialState: CounterStateType = {
@@ -27,3 +28,6 @@ const couterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = couterSlice.actions
 
 export default couterSlice.reducer
+
+export const selectCounterValue = (state: RootState): number =>
+  state.counter.value
