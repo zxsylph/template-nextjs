@@ -18,7 +18,7 @@
         "files.associations": {
           "*.example.json": "jsonc",
           "*.ts": "typescript",
-          "*.tsx": "typescriptreact"
+          "*.tsx": "typescript"
         },
         "workbench.editor.labelFormat": "short",
         "editor.formatOnSave": true,
@@ -32,7 +32,7 @@
         "[typescript]": {
           "editor.tabSize": 2,
           "editor.codeActionsOnSave": {
-            "source.sortImports": true
+            "source.organizeImports": true
           },
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         }
@@ -44,7 +44,6 @@
         "oderwat.indent-rainbow",
         "ms-vsliveshare.vsliveshare",
         "wakatime.vscode-wakatime",
-        "redhat.vscode-yaml",
         "tabnine.tabnine-vscode",
         "esbenp.prettier-vscode",
         "ms-edgedevtools.vscode-edge-devtools"
